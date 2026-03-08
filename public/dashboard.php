@@ -1,5 +1,6 @@
 <?php
-require '../includes/session.php';
+$PROJECT_ROOT = dirname(dirname(__FILE__));
+require $PROJECT_ROOT . '/includes/session.php';
 requireLogin();
 
 $user = getUser();
@@ -226,10 +227,6 @@ $user = getUser();
 
         <div class="info-grid">
             <div class="info-card">
-                <label>ID OAuth</label>
-                <value><?php echo htmlspecialchars(substr($user['id'], 0, 20) . '...'); ?></value>
-            </div>
-            <div class="info-card">
                 <label>Thời Gian Đăng Nhập</label>
                 <value><?php echo htmlspecialchars($user['login_time']); ?></value>
             </div>
@@ -246,7 +243,6 @@ $user = getUser();
         </div>
 
         <div class="action-buttons">
-            <a href="login.php" class="btn-home">← Quay Lại Đăng Nhập</a>
             <a href="logout.php" class="btn-logout">Đăng Xuất</a>
         </div>
 
